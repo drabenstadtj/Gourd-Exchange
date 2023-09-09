@@ -1,0 +1,105 @@
+Reset list styles and set up navigation bar ul.nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.nav li {
+  display: inline;
+}
+
+.nav a {
+  display: inline-block;
+  padding: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  color: #111;
+}
+.nav a:hover {
+  color: #333;
+}
+
+/* Apply styles to the body and headings */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #ffd580;
+}
+
+h1,
+h3 {
+  text-align: center;
+}
+
+/* Center the table and define table cell styles */
+table {
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 15px;
+  text-align: left;
+}
+
+/* Form styling */
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+form h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="password"],
+form input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+form input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Style the submit button on hover */
+form input[type="submit"]:hover {
+  background-color: #111;
+}
+
+/* Additional styles for portfolio and stock list */
+.portfolio {
+  text-align: center;
+}
+
+ul.stocks {
+  display: inline-block;
+  text-align: left;
+}
+body {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.title {
+  width: 100%;
+  display: block;
+  max-width: 200px;
+}
