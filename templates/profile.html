@@ -1,0 +1,89 @@
+{% extends "base.html" %} {% block title %} User Profile {% endblock %} {% block
+content %}
+
+<h3>Portfolio</h3>
+<form method="POST" action="/profile">
+  <label for="username">Username:</label>
+  <input type="text" name="username" required /><br /><br />
+  <label for="password">Password:</label>
+  <input type="password" name="password" required /><br /><br />
+  <input type="submit" value="View Profile" />
+</form>
+
+<div class="portfolio">
+  <center>
+    {% if user_data %} {% if user_data.title == 0 %}<img
+      class="title"
+      src="{{ url_for( 'static' ,filename='Level0.png')}}"
+      alt="UI Image"
+    />{% elif user_data.title == 1 %}<img
+      class="title"
+      src="{{ url_for( 'static' ,filename='Level1.png')}}"
+      alt="PP Image"
+    />{% elif user_data.title == 2 %}<img
+      class="title"
+      src="{{ url_for( 'static' ,filename='Level2.png')}}"
+      alt="BB Image"
+    />{% elif user_data.title == 3 %}<img
+      class="title"
+      src="{{ url_for( 'static' , filename='Level3.png')}}"
+      alt="XX Image"
+    />{% elif user_data.title == 4 %}<img
+      class="title"
+      src="{{ url_for( 'static' ,filename='Level4.png')}}"
+      alt="PA Image"
+    />{% elif user_data.title == 5 %}<img
+      class="title"
+      src="{{ url_for( 'static' , filename='Level5.png')}}"
+      alt="DD Image"
+    />{% elif user_data.title == 6 %}<img
+      class="title"
+      src="{{ url_for( 'static' ,filename='Level6')}}"
+      alt="EF Image"
+    />{% elif user_data.title == 7 %}<img
+      class="title"
+      src="{{ url_for( 'static' , filename='Level7.png')}}"
+      alt="MM Image"
+    />{% elif user_data.title == 8 %}<img
+      class="title"
+      src="{{ url_for( 'static' ,filename='Level8')}}"
+      alt="RR Image"
+    />{% elif user_data.title == 9 %}<img
+      class="title"
+      src="{{ url_for( 'static' , filename='Level9.png')}}"
+      alt="WW Image"
+    />{% elif user_data.title == 10 %}<img
+      class="title"
+      src="{{ url_for( 'static' ,filename='Level10.png')}}"
+      alt="VV Image"
+    />{% elif user_data.title == 11 %}<img
+      class="title"
+      src="{{ url_for( 'static' , filename='Level11.png')}}"
+      alt="GG Image"
+    />{% elif user_data.title == 12 %}<img
+      class="title"
+      src="{{ url_for( 'static' ,filename='Level12.png')}}"
+      alt="CT Image"
+    />{% elif user_data.title == 13 %}<img
+      class="title"
+      src="{{ url_for( 'static' , filename='Level13.png')}}"
+      alt="HH Image"
+    />{% elif user_data.title == 14 %}<img
+      class="title"
+      src="{{ url_for( 'static' ,filename='Level14.png')}}"
+      alt="SS Image"
+    />{% elif user_data.title == 15 %}<img
+      class="title"
+      src="{{ url_for( 'static' , filename='Level15.png')}}"
+      alt="CC Image"
+    />{% endif %}
+  </center>
+  <h2 style="color: green">Balance: {{ "$%.2f"|format(user_data.balance) }}</h2>
+  <h2>Owned Stocks:</h2>
+  <ul class="stocks">
+    {% for key, value in user_data['owned stocks'].items() %}
+    <li>{{key}} - {{ value }} shares</li>
+    {% endfor %}
+  </ul>
+  {% endif %} {% endblock %}
+</div>

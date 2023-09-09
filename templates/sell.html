@@ -1,0 +1,16 @@
+{% extends "base.html" %} {% block title %} Sell Stock {% endblock %} {% block
+content %}
+
+<h3>Sell Stock</h3>
+<form method="POST" action="/sell">
+  <label for="username">Username:</label>
+  <input type="text" name="username" required /><br /><br />
+  <label for="password">Password:</label>
+  <input type="password" name="password" required /><br /><br />
+  <label for="ticker">Stock Ticker:</label>
+  <input type="text" name="ticker" required /><br /><br />
+  <label for="amount">Amount:</label>
+  <input type="number" name="amount" required /><br /><br />
+  <input type="submit" value="Sell" />
+</form>
+{% endblock %}

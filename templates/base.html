@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {% block stylesheet %}
+    <link
+      rel="stylesheet"
+      href="{{ url_for( 'static' , filename='style.css')}}"
+    />
+    {% endblock stylesheet %}
+    <center>
+      <h1><u>THE PEPO STOCK EXCHANGE</u></h1>
+      <h2>CURRENT TIME</h2>
+      <iframe
+        src="https://free.timeanddate.com/clock/i8z01dke/n3263/szw350/szh350/hoc000/hbw2/hfcffd580/cf100/hgr0/hcw2/fav0/fiv0/mqc000/mqs3/mql27/mqw4/mqd100/mhc000/mhs3/mhl20/mhw4/mhd100/mmc000/mms3/mml10/mmw2/mmd100/hwm1/hhl50/hhw8/hml75/hmw8/hmr4/hss3/hsl90/hsw3/hsr3"
+        frameborder="0"
+        width="350"
+        height="350"
+      ></iframe>
+      <br />
+      <br />
+      <iframe
+        src="https://free.timeanddate.com/clock/i8z01dke/n179/fn17/fs20/tcffd580/pcffd580/bo2/pa5/tt0/td2/th2/ta1/tb1"
+        frameborder="0"
+        width="541"
+        height="36"
+      ></iframe>
+      <br />
+      <br />
+    </center>
+  </head>
+  <body>
+    <center>
+      <!-- Common header content, navigation, etc. -->
+      <ul class="nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/register">Register</a></li>
+        <li><a href="/purchase">Purchase</a></li>
+        <li><a href="/sell">Sell</a></li>
+        <li><a href="/profile">Portfolio</a></li>
+        <li><a href="/leaderboard">Leaderboard</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </center>
+    <hr />
+    <div class="content">{% block content %}{% endblock %}</div>
+
+    <!-- Common footer content, scripts, etc. -->
+  </body>
+</html>

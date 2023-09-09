@@ -1,0 +1,84 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="dashboard">
+  <h1>All Stocks</h1>
+  <table id="stock-table" border="1">
+    <thead>
+      <tr>
+        <th>Parent Company</th>
+        <th>Name</th>
+        <th>Ticker</th>
+        <th>Total Stocks</th>
+        <th>Unsold Stocks</th>
+        <th>Stock Value</th>
+        <th>Market Cap</th>
+      </tr>
+    </thead>
+    {% for document in value_documents %}
+    <tr>
+      <!-- ... Table data ... -->
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  function formatMoney(number) {
+    return number.toLocaleString("en-US", {
+      style: "currency",
+      currency: "USD",
+    });
+  }
+  $(document).ready(function () {
+    function updateTable() {
+      $.ajax({
+        url: "/update_data",
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+          var value_documents = data.value_documents;
+          var table = $("#stock-table tbody");
+          table.empty(); // Clear existing rows
+          $.each(value_documents, function (index, document) {
+            // Append rows with updated data
+            var row =
+              "<tr>" +
+              "<td>" +
+              document.parent +
+              "</td>" +
+              "<td>" +
+              document.name +
+              "</td>" +
+              "<td>" +
+              document.ticker +
+              "</td>" +
+              "<td>" +
+              document["total stocks"] +
+              "</td>" +
+              "<td>" +
+              document["unsold stocks"] +
+              "</td>" +
+              "<td>" +
+              formatMoney(document.value) +
+              "</td>" +
+              "<td>" +
+              formatMoney(document["market cap"]) +
+              "</td>" +
+              "</tr>";
+            table.append(row);
+          });
+        },
+        complete: function () {
+          // Schedule the next update after 10 seconds
+          setTimeout(updateTable, 1000);
+        },
+      });
+    }
+
+    // Initial call to update the table
+    updateTable();
+  });
+</script>
+
+{% endblock %}
