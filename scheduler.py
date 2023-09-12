@@ -1,12 +1,12 @@
 import schedule
 import time
 from datetime import datetime, timedelta
-import values
+import value_updater
 
 
 def your_function():
     # Your code here
-    values.update_values()
+    value_updater.update_values()
     print("Running your_function()")
 
 # Define a job to run your_function() every minute on weekdays between 9:30 AM and 4:00 PM
@@ -22,7 +22,9 @@ def job():
 # Schedule the job to run every minute
 schedule.every(1).minutes.do(your_function)
 
-# Run the scheduling loop
-while True:
-    schedule.run_pending()
-    time.sleep(1)  # Sleep for 1 second to avoid high CPU usage
+
+def start():
+    # Run the scheduling loop
+    while True:
+        schedule.run_pending()
+        time.sleep(1)  # Sleep for 1 second to avoid high CPU usage

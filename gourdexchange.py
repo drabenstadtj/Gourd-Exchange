@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 import json
-import values
+import value_updater
+import scheduler
 from pymongo import MongoClient
 
 app = Flask(__name__)
@@ -235,6 +236,11 @@ def update_data():
         document['_id'] = str(document['_id'])
 
     return jsonify({'value_documents': value_documents})
+
+
+def run():
+    app.run()
+    scheduler.start()
 
 
 if __name__ == '__main__':
